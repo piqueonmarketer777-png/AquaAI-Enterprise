@@ -2,7 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
-import cv2
+try:
+    import cv2
+except ImportError:
+    import sys
+    import subprocess
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless"])
+    import cv2
 import sqlite3
 from datetime import datetime
 
